@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+main{
+    height: 100%;
+    width: 100%;
+    background-color: #141414;
+}
+#loader{
+    height: 100%;
+    width: 100%;
+    background-color: #0A0A0A;
+    padding: 10vw 4vw;
+    z-index: 999;
+}
+#loader-text h2 {
+    font-family: "plain light";
+    font-size: 7vw;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: 600;
+    height: 7.5vw;
+}
+#loader-text p {
+    font-family: "plain light";
+    margin-top: 3vw;
+    margin-left: 22vw;
+}
+#loader-text span{
+    animation-name: loader-italic;
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.line {
+    overflow: hidden;
+    height: fit-content;
+}
+.line-1{
+    display: flex;
+    column-gap: 5vw;
+    padding-left: 4vw;
+}
+#counter-text {
+    display: flex;
+    column-gap: 0.7vw;
+}
+#counter-text h3 {
+    font-family: "silk serif";
+    font-size: 3vw;
+    font-weight: 100;
+}
+#counter{
+    width: 4.5vw;
+}
+@keyframes loader-italic{
+    0%{
+        font-family: "plain light";
+        font-weight: 700;
+        opacity: 1;
+        color: #fff;
+        -webkit-text-stroke: 0px transparent;
+    }
+    28%{
+        opacity: 0;
+    }
+    50%{
+        font-family: "silk serif";
+        color: transparent;
+        font-weight: 100;
+        -webkit-text-stroke: 1px #fff;
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+    100%{
+        font-family: "plain light";
+        font-weight: 700;
+        opacity: 1;
+        color: #fff;
+        -webkit-text-stroke: 0px transparent;
+}
+}
+#hero{
+    height: 100%;
+    width: 100%;
+}
