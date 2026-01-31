@@ -26,20 +26,30 @@ function loaderAnimation(){
         clearInterval(countTimer);
         revealMainSite();
     }
-}, 33);
+}, 10);
 }
 function revealMainSite(){
     tl.to("#loader-text h2, #counter-text h3, #loader-text p", {
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
         stagger: 0.1,
         ease: "power2.inOut"
     });
     tl.to("#loader", {
         y: "-100%",
-        duration: 1.2,
+        duration: 0.7,
         ease: "power4.out",
     });
     tl.set("#loader", {display: "none"});
+    tl.fromTo(".hero-line>span", {
+        y: "100%",
+        opacity: 0,
+    }, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.07,
+        ease: "power4.out"
+    }, "<0.1");
 }
 loaderAnimation();

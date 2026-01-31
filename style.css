@@ -37,7 +37,7 @@ main{
 #loader-text span{
     animation-name: loader-italic;
     animation-duration: 1.3s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 3;
     animation-timing-function: ease-in-out;
 }
 .line {
@@ -93,4 +93,112 @@ main{
 #hero{
     height: 100%;
     width: 100%;
+    padding: 3vw 4vw;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 80px;
+}
+#logo-section{
+    display: flex;
+    align-items: center;
+    column-gap: 2vw;
+}
+.menu-opener__square rect{
+    transition: all ease 0.4s;
+}
+.menu-opener__square:hover rect{
+    fill: #cecece;
+}
+.brand__svg path{
+    transition: all ease 0.4s;
+}
+.brand__svg:hover path{
+    fill: #cecece;
+}
+#site-title p{
+    font-family: "plain light";
+    font-weight: 500;
+    line-height: 1;
+}
+#social-links{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 2vw;
+    flex-grow: 0.5;
+}
+#social-links h4 {
+    font-family: "plain light";
+    font-weight: 500;
+    transition: all ease 0.4s;
+}
+#social-links h4:hover{
+    color: #cecece;
+}
+#hero-text{
+    padding: 6vw 16vw;
+    display: flex;
+    column-gap: 4.5vw;
+}
+.section-number{
+    font-family: "silk serif";
+    font-size: 3.2vw;
+}
+#hero-heading span{
+    font-family: "plain";
+    font-size: 7.3vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.85;
+    display: inline-block;
+}
+.hero-line>span{
+    opacity: 0;
+}
+.hero-line{
+    height: fit-content;
+    overflow: hidden;
+    padding-bottom: 0.7vw;
+}
+.hero-line-3{
+    position: relative;
+    transition: color 0.4s, -webkit-text-stroke 0.4s;
+    padding-bottom: 0.65vw;
+    -webkit-text-stroke-width: 1px;
+}
+.hero-line-3::after{
+    content:"";
+    height: 0.6vw;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+}
+#slash{
+    margin-left: 2.5vw;
+    padding-left: 1.5vw;
+}
+#slash::before{
+    content: "/";
+    position: absolute;
+    left: -5.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease 0.4s;
+    color: white;
+}
+.hero-line-3:hover{
+    color: transparent;
+    -webkit-text-stroke-color: #fff;
+}
+.hero-line-3:hover::after{
+    content:"";
+    height: 0;
+}
+#slash:hover::before{
+    color: white;
 }
