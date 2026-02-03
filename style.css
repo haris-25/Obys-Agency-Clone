@@ -8,11 +8,21 @@ html,body{
     height: 100%;
     width: 100%;
     overflow: hidden;
+    cursor: none;
 }
 main{
     height: 100%;
     width: 100%;
     background-color: #141414;
+}
+#circle-cursor{
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: 1px solid #ffffff85;
+    border-radius: 50%;
+    pointer-events: none;
 }
 #loader{
     height: 100%;
@@ -20,6 +30,7 @@ main{
     background-color: #0A0A0A;
     padding: 10vw 4vw;
     z-index: 999;
+
 }
 #loader-text h2 {
     font-family: "plain light";
@@ -133,7 +144,7 @@ nav{
 #social-links h4 {
     font-family: "plain light";
     font-weight: 500;
-    transition: all ease 0.4s;
+    transition: color 0.4s;
 }
 #social-links h4:hover{
     color: #cecece;
@@ -141,11 +152,13 @@ nav{
 #hero-text{
     padding: 6vw 16vw;
     display: flex;
+    align-items: flex-start;
     column-gap: 4.5vw;
 }
 .section-number{
     font-family: "silk serif";
     font-size: 3.2vw;
+    transform: translateY(-0.5vw);
 }
 #hero-heading span{
     font-family: "plain";
