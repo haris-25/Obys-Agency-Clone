@@ -7,13 +7,17 @@
 html,body{
     height: 100%;
     width: 100%;
-    overflow: hidden;
     cursor: none;
+}
+body{
+    background-color: #141414;
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 main{
     height: 100%;
     width: 100%;
-    background-color: #141414;
 }
 #circle-cursor{
     position: fixed;
@@ -104,9 +108,10 @@ main{
 }
 }
 #hero{
-    height: 100%;
+    height: 90%;
     width: 100%;
     padding: 3vw 4vw;
+    z-index: 10;
 }
 nav{
     display: flex;
@@ -152,10 +157,13 @@ nav{
     color: #cecece;
 }
 #hero-text{
-    padding: 6vw 16vw;
+    padding: 6vw;
+    padding-left: 16vw;
     display: flex;
     align-items: flex-start;
     column-gap: 4.5vw;
+    position: relative;
+    z-index: 10;
 }
 .section-number{
     font-family: "silk serif";
@@ -164,7 +172,7 @@ nav{
 }
 #hero-heading span{
     font-family: "plain";
-    font-size: 7.3vw;
+    font-size: 7.4vw;
     font-weight: 400;
     text-transform: uppercase;
     line-height: 0.85;
@@ -235,4 +243,56 @@ nav{
     position: fixed;
     opacity: 0;
     pointer-events: none;
+    z-index: 5;
+}
+#video-section{
+    margin-top: 1.5vw;
+    padding-left: 28vw;
+    height: 70%;
+    width: 100%;
+}
+#video-container {
+    height: 100%;
+    width: 100%;
+    background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg);
+    background-size: cover;
+    position: relative;
+    svg {
+    position: absolute;
+    opacity: 0;
+    width: 24px;
+    height: auto;
+}
+}
+#video-cursor{
+    position: absolute;
+    height: 9vw;
+    width: 9vw;
+    background-color: #F09C39;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 73%;
+    pointer-events: none;
+    z-index: 2;
+}
+#video-cursor .button__play-icon{
+    opacity: 1;
+}
+#video-cursor.is-playing .button__play-icon{
+    opacity: 0;
+}
+#video-cursor.is-playing .button__pause-icon{
+    opacity: 1;
+}
+#video-container video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+#projects-section{
+    height: 100%;
+    width: 100%;
 }

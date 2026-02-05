@@ -6,6 +6,9 @@ const magnetElements = document.querySelectorAll(
   ".menu-opener__square, #social-links h4",
 );
 const flagHeadings = document.querySelectorAll(".hero-line-3");
+const videoCursor = document.querySelector("#video-cursor");
+const videoContainer = document.querySelector("#video-container");
+const video = document.querySelector("#obys-video");
 function loaderAnimation() {
   tl.from("#loader-text h2", {
     y: 150,
@@ -130,6 +133,15 @@ function scrollTextAnimation() {
       duration: 1,
       ease: "power2.out",
     });
+    gsap.to("#animating-scroll-text", {
+      scrollTrigger: {
+        trigger: "#animating-scroll-text",
+        start: "top 80%",
+        end: "top 80%",
+        scrub: 0.8,
+      },
+      opacity: 0,
+    })
 }
 function flagAnimation() {
   flagHeadings.forEach((heading) => {
@@ -150,8 +162,68 @@ function flagAnimation() {
     });
   });
 }
+function videoAnimation() {
+  const idleOffsetY = -100;
+  gsap.to("#video-cursor", {
+    y: idleOffsetY,
+  })
+  const offsetX = -1100;
+  videoContainer.addEventListener("mouseenter", ()=>{
+    gsap.to(cursor, {
+      opacity: 0
+    })
+  });
+  videoContainer.addEventListener("mousemove", (e)=>{
+    const rect = videoContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left + offsetX;
+    const y = e.clientY - rect.top;
+      gsap.to("#video-cursor", {
+        x: x,
+        y: y,
+        yPercent: -50,
+        duration: 0.4,
+      })
+    })
+  videoContainer.addEventListener("mouseleave", ()=>{
+    gsap.to("#video-cursor", {
+      x: 0,
+      y: -10,
+    });
+    gsap.to(cursor, {
+      opacity: 1
+    });
+  })
+  videoContainer.addEventListener("click", ()=>{
+    if(video.paused){
+     video.play();
+     videoCursor.classList.add("is-playing");
+    gsap.to(video, {
+      opacity: 1,
+      duration: 0.5,
+    })
+    gsap.to(videoCursor, {
+      scale: 0.5,
+      delay: 0.4,
+      duration: 0.3
+    })
+    }
+    else{
+      video.pause();
+      videoCursor.classList.remove("is-playing");
+      gsap.to(video, {
+        opacity: 0,
+        duration: 0.5,
+      })
+      gsap.to(videoCursor, {
+      scale: 1,
+      duration: 0.3
+    })
+    }
+  })
+}
 flagAnimation();
 mouseAnimation();
 loaderAnimation();
 magnetEffect();
 scrollTextAnimation();
+videoAnimation();
