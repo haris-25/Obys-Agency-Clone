@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Obys Agency</title>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.css"
@@ -122,12 +123,14 @@
               ></path>
             </svg>
           </div>
-          <div id="site-title">
-            <p>
-              Obys— <br />Creative <br />
-              Design <br />
-              Agency
-            </p>
+          <div id="site-title-container">
+            <div id="site-title">
+              <p>
+                Obys— <br />Creative <br />
+                Design <br />
+                Agency
+              </p>
+            </div>
           </div>
           <div id="social-links">
             <h4>Works</h4>
@@ -135,7 +138,7 @@
             <h4>Contacts</h4>
           </div>
         </nav>
-        <div id="hero-text">
+        <div id="hero-text" data-scroll data-scroll-speed="0.2">
           <div class="section-number">01</div>
           <div id="hero-heading">
             <h1>
@@ -155,7 +158,7 @@
           <p id="animating-scroll-text">Scroll</p>
         </div>
       </div>
-      <div id="video-section">
+      <div id="video-section" >
         <div id="video-container">
           <div id="video-cursor">
             <svg
@@ -193,6 +196,10 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.min.js"></script>
+    <script>
+      const locomotiveScroll = new LocomotiveScroll();
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
     <script

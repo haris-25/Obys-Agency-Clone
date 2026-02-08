@@ -9,6 +9,22 @@ const flagHeadings = document.querySelectorAll(".hero-line-3");
 const videoCursor = document.querySelector("#video-cursor");
 const videoContainer = document.querySelector("#video-container");
 const video = document.querySelector("#obys-video");
+const locoScroll = new LocomotiveScroll ({
+  lenisOptions: {
+    wrapper: window,
+    content: document.documentElement,
+    lerp: 0.1,
+    duration: 1,
+    orientation: "vertical",
+    gestureOrientation: "vertical",
+    smoothWheel: true,
+    smoothTouch: false,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+    normalizeWheel: true,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  }
+})
 function loaderAnimation() {
   tl.from("#loader-text h2", {
     y: 150,
@@ -37,7 +53,7 @@ function loaderAnimation() {
       clearInterval(countTimer);
       revealMainSite();
     }
-  }, 33);
+  }, 30);
 }
 function revealMainSite() {
   tl.to("#loader-text h2, #counter-text h3, #loader-text p", {
@@ -48,7 +64,7 @@ function revealMainSite() {
   });
   tl.to("#loader", {
     y: "-100%",
-    duration: 0.7,
+    duration: 1,
     ease: "power4.out",
   });
   tl.set("#loader", { display: "none" });
@@ -61,11 +77,11 @@ function revealMainSite() {
     {
       y: 0,
       opacity: 1,
-      duration: 0.8,
-      stagger: 0.07,
+      duration: 1.2,
+      stagger: 0.1,
       ease: "power4.out",
     },
-    "<0.1",
+    "<-0.8",
   );
 }
 function mouseAnimation() {

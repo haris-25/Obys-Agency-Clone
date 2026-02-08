@@ -1,3 +1,4 @@
+@import 'locomotive-scroll/dist/locomotive-scroll.css';
 *{
     margin: 0;
     padding: 0;
@@ -110,7 +111,7 @@ main{
 #hero{
     height: 90%;
     width: 100%;
-    padding: 3vw 4vw;
+    padding: 2.5vw 4vw;
     z-index: 10;
 }
 nav{
@@ -123,6 +124,7 @@ nav{
     display: flex;
     align-items: center;
     column-gap: 2vw;
+    position: fixed;
 }
 .menu-opener__square rect{
     transition: all ease 0.4s;
@@ -136,6 +138,13 @@ nav{
 .brand__svg:hover path{
     fill: #cecece;
 }
+#site-title-container{
+    width: 29%;
+    justify-self: flex-end;
+}
+#site-title{
+    justify-self: flex-end;
+}
 #site-title p{
     font-family: "plain light";
     font-weight: 500;
@@ -146,7 +155,6 @@ nav{
     align-items: center;
     justify-content: flex-end;
     column-gap: 2vw;
-    flex-grow: 0.5;
 }
 #social-links h4 {
     font-family: "plain light";
