@@ -9,7 +9,7 @@ const flagHeadings = document.querySelectorAll(".hero-line-3");
 const videoCursor = document.querySelector("#video-cursor");
 const videoContainer = document.querySelector("#video-container");
 const video = document.querySelector("#obys-video");
-const locoScroll = new LocomotiveScroll ({
+const locoScroll = new LocomotiveScroll({
   lenisOptions: {
     wrapper: window,
     content: document.documentElement,
@@ -23,8 +23,8 @@ const locoScroll = new LocomotiveScroll ({
     touchMultiplier: 2,
     normalizeWheel: true,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  }
-})
+  },
+});
 function loaderAnimation() {
   tl.from("#loader-text h2", {
     y: 150,
@@ -149,15 +149,15 @@ function scrollTextAnimation() {
       duration: 1,
       ease: "power2.out",
     });
-    gsap.to("#animating-scroll-text", {
-      scrollTrigger: {
-        trigger: "#animating-scroll-text",
-        start: "top 80%",
-        end: "top 80%",
-        scrub: 0.8,
-      },
-      opacity: 0,
-    })
+  gsap.to("#animating-scroll-text", {
+    scrollTrigger: {
+      trigger: "#animating-scroll-text",
+      start: "top 80%",
+      end: "top 80%",
+      scrub: 0.8,
+    },
+    opacity: 0,
+  });
 }
 function flagAnimation() {
   flagHeadings.forEach((heading) => {
@@ -182,60 +182,59 @@ function videoAnimation() {
   const idleOffsetY = -100;
   gsap.to("#video-cursor", {
     y: idleOffsetY,
-  })
-  const offsetX = -1100;
-  videoContainer.addEventListener("mouseenter", ()=>{
-    gsap.to(cursor, {
-      opacity: 0
-    })
   });
-  videoContainer.addEventListener("mousemove", (e)=>{
+  const offsetX = -1100;
+  videoContainer.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      opacity: 0,
+    });
+  });
+  videoContainer.addEventListener("mousemove", (e) => {
     const rect = videoContainer.getBoundingClientRect();
     const x = e.clientX - rect.left + offsetX;
     const y = e.clientY - rect.top;
-      gsap.to("#video-cursor", {
-        x: x,
-        y: y,
-        yPercent: -50,
-        duration: 0.4,
-      })
-    })
-  videoContainer.addEventListener("mouseleave", ()=>{
+    gsap.to("#video-cursor", {
+      x: x,
+      y: y,
+      yPercent: -50,
+      duration: 0.4,
+    });
+  });
+  videoContainer.addEventListener("mouseleave", () => {
     gsap.to("#video-cursor", {
       x: 0,
       y: -10,
     });
     gsap.to(cursor, {
-      opacity: 1
-    });
-  })
-  videoContainer.addEventListener("click", ()=>{
-    if(video.paused){
-     video.play();
-     videoCursor.classList.add("is-playing");
-    gsap.to(video, {
       opacity: 1,
-      duration: 0.5,
-    })
-    gsap.to(videoCursor, {
-      scale: 0.5,
-      delay: 0.4,
-      duration: 0.3
-    })
-    }
-    else{
+    });
+  });
+  videoContainer.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+      videoCursor.classList.add("is-playing");
+      gsap.to(video, {
+        opacity: 1,
+        duration: 0.5,
+      });
+      gsap.to(videoCursor, {
+        scale: 0.5,
+        delay: 0.4,
+        duration: 0.3,
+      });
+    } else {
       video.pause();
       videoCursor.classList.remove("is-playing");
       gsap.to(video, {
         opacity: 0,
         duration: 0.5,
-      })
+      });
       gsap.to(videoCursor, {
-      scale: 1,
-      duration: 0.3
-    })
+        scale: 1,
+        duration: 0.3,
+      });
     }
-  })
+  });
 }
 flagAnimation();
 mouseAnimation();
@@ -243,3 +242,38 @@ loaderAnimation();
 magnetEffect();
 scrollTextAnimation();
 videoAnimation();
+Shery.imageEffect(".project-image", {
+  style: 5,
+  config: {
+    a: { value: 1.15, range: [0, 30] },
+    b: { value: 0.91, range: [-1, 1] },
+    zindex: { value: -9996999, range: [-9999999, 9999999] },
+    aspect: { value: 0.7942556838939944 },
+    ignoreShapeAspect: { value: true },
+    shapePosition: { value: { x: 0, y: 0 } },
+    shapeScale: { value: { x: 0.5, y: 0.5 } },
+    shapeEdgeSoftness: { value: 0, range: [0, 0.5] },
+    shapeRadius: { value: 0, range: [0, 2] },
+    currentScroll: { value: 0 },
+    scrollLerp: { value: 0.07 },
+    gooey: { value: true },
+    infiniteGooey: { value: false },
+    growSize: { value: 4, range: [1, 15] },
+    durationOut: { value: 1, range: [0.1, 5] },
+    durationIn: { value: 1.5, range: [0.1, 5] },
+    displaceAmount: { value: 0.5 },
+    masker: { value: true },
+    maskVal: { value: 1.37, range: [1, 5] },
+    scrollType: { value: 0 },
+    geoVertex: { range: [1, 64], value: 1 },
+    noEffectGooey: { value: true },
+    onMouse: { value: 1 },
+    noise_speed: { value: 0.38, range: [0, 10] },
+    metaball: { value: 0.43, range: [0, 2] },
+    discard_threshold: { value: 0.49, range: [0, 1] },
+    antialias_threshold: { value: 0, range: [0, 0.1] },
+    noise_height: { value: 0.5, range: [0, 2] },
+    noise_scale: { value: 12.98, range: [0, 100] },
+  },
+  gooey: true,
+});
