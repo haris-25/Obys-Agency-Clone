@@ -53,7 +53,7 @@ function loaderAnimation() {
       clearInterval(countTimer);
       revealMainSite();
     }
-  }, 30);
+  }, 33);
 }
 function revealMainSite() {
   tl.to("#loader-text h2, #counter-text h3, #loader-text p", {
